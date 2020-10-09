@@ -1,0 +1,29 @@
+﻿@using MVCStokTakibi.Models.Entity
+@model List<TBLMUSTERILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<table class="table table-bordered" >
+    <tr>
+        <th>Musteri ID</th>
+        <th>Musteri Ad</th>
+        <th>Musteri Soyad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var mst in Model)
+        {
+        <tr>
+            <th>@mst.MUSTERIID</th>
+            <td>@mst.MUSTERAD</td>
+            <td>@mst.MUSTERISOYAD</td>
+            <th><a href="/Kategori/Sil/@mst.MUSTERIID" class="btn btn-danger">SİL</a></th>
+            <th><a href="/Kategori/Güncelle/@mst.MUSTERIID" class="btn btn-success">Güncelle</a></th>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="~/Musteriler/YeniMusteri" class="btn btn-primary">Yeni Müşteri Ekle</a>
+
